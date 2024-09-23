@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer utilities {
+    .links{
+        @apply relative ml-5 text-red-500 hover:text-blue-600
+    }
+    .links::after{
+        @apply content-[''] bg-darkblue w-[0%] h-[1px] rounded-2xl left-0 -bottom-[5px] absolute duration-300
+    }
+    .links:hover::after{
+        @apply w-[100%]
+    }
+}

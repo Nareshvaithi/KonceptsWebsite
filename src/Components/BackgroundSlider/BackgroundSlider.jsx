@@ -1,0 +1,1 @@
+import HeroSlider from "hero-slider/dist/HeroSlider";
