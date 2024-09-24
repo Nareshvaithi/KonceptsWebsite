@@ -6,6 +6,8 @@ const Logo = (props) => (
     id="Layer_1"
     x={0}
     y={0}
+    width={100}
+    height={80}
     style={{
       enableBackground: "new 0 0 512 512",
     }}

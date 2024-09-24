@@ -1,7 +1,7 @@
 const Nopage = ()=>{
     return(
         <div>
-            home
+            no page
         </div>
     )
 }

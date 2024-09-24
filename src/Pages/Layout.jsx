@@ -2,15 +2,18 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
 import BackgroundSlider from "../Components/BackgroundSlider/BackgroundSlider";
+import ResponsiveNavbar from "../Components/Navbar/ResponsiveNavbar";
 
 
 const Layout = ()=>{
     return(
         <>
            <Navbar/>
-           <BackgroundSlider/>
             <Outlet/>
-            <Footer/>   
+            <Footer/>
+             {/* ResponsiveNavbar */}
+               
+             <ResponsiveNavbar/>   
         </>
     )
 }

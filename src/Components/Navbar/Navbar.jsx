@@ -5,6 +5,7 @@ import { TfiClose } from "react-icons/tfi";
 import { CiMenuBurger } from "react-icons/ci";
 import { MenuStateContext } from "../Usecontext/UseContext";
 import ResponsiveNavbar from "./ResponsiveNavbar";
+
 export const navlinks = [
     {
         lable:"home",
@@ -69,22 +70,20 @@ export const navlinks = [
       
         return(
             <>
-            <div className={`fixed top-0 w-full ${window.scrollY > 150 ? "bg-red-500":"bg-transparent"} text-white z-50 transition-all duration-500 ${
+            <div className={`fixed top-0 w-full ${window.scrollY > 150 ? "bg-red-500":"bg-transparent"} text-white z-40 transition-all duration-500 ${
                             isScrollingUp ? 'transform translate-y-0' : 'transform -translate-y-full'}`}>
-                <div className="container flex items-center justify-between  mx-auto">
+                <div className="container flex items-center justify-between">
                     {/* logo */}
-                    <div>
-                        <div className="w-20">
+                    <div className="">
                         <Link className="" to={'/'}><Logo/></Link>
-                        </div>
                     </div>
                     {/* navbar links */}
-                    <div className="hidden md:block">
-                        <ul className="flex">
+                    <div className="hidden md:block mt-3">
+                        <ul className="flex gap-3">
                             {
                                 navlinks.map((items,index)=>(
-                                    <li key={index} className="font-Heading">
-                                        <NavLink to={items.to} className="links">
+                                    <li key={index} className="text-lg font-semibold">
+                                        <NavLink to={items.to} className="links no-underline text-white">
                                             {items.lable}
                                         </NavLink>
                                     </li>
@@ -93,15 +92,13 @@ export const navlinks = [
                         </ul>
                     </div>
                     {/* Menu button */}
-                    <div onClick={HandleMenuState} className="block md:hidden">
+                    <div onClick={HandleMenuState}>
                         {MenuState ? (<TfiClose size={20}/>):(<CiMenuBurger size={20}/>)}
                     </div>
                    
             </div>
-                {/* ResponsiveNavbar */}
-               
-                <ResponsiveNavbar/>
             </div>
+             
             </>
             
         )
