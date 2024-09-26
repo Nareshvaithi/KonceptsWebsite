@@ -4,7 +4,7 @@ import {Link, NavLink} from "react-router-dom";
 import { TfiClose } from "react-icons/tfi";
 import { CiMenuBurger } from "react-icons/ci";
 import { MenuStateContext } from "../Usecontext/UseContext";
-import ResponsiveNavbar from "./ResponsiveNavbar";
+
 
 export const navlinks = [
     {
@@ -70,7 +70,7 @@ export const navlinks = [
       
         return(
             <>
-            <div className={`fixed top-0 w-full ${window.scrollY > 150 ? "bg-red-500":"bg-transparent"} text-white z-40 transition-all duration-500 ${
+            <div className={`fixed top-0 w-full ${window.scrollY > 150 ? "bg-gray-300":"bg-transparent"} text-darkblue z-40 transition-all duration-500 ${
                             isScrollingUp ? 'transform translate-y-0' : 'transform -translate-y-full'}`}>
                 <div className="container flex items-center justify-between">
                     {/* logo */}
@@ -78,12 +78,12 @@ export const navlinks = [
                         <Link className="" to={'/'}><Logo/></Link>
                     </div>
                     {/* navbar links */}
-                    <div className="hidden md:block mt-3">
-                        <ul className="flex gap-3">
+                    <div className="hidden md:block">
+                        <ul className="flex gap-3 mr-28 mt-2">
                             {
                                 navlinks.map((items,index)=>(
                                     <li key={index} className="text-lg font-semibold">
-                                        <NavLink to={items.to} className="links no-underline text-white">
+                                        <NavLink to={items.to} className="links no-underline text-darkblue">
                                             {items.lable}
                                         </NavLink>
                                     </li>
