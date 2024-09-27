@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import Logo from "../../assets/Images/Logo";
 import {Link, NavLink} from "react-router-dom";
 import { TfiClose } from "react-icons/tfi";
-import { CiMenuBurger } from "react-icons/ci";
+import { CgMenuRight } from "react-icons/cg";
 import { MenuStateContext } from "../Usecontext/UseContext";
 
 
@@ -93,7 +93,7 @@ export const navlinks = [
                     </div>
                     {/* Menu button */}
                     <div onClick={HandleMenuState}>
-                        {MenuState ? (<TfiClose size={20}/>):(<CiMenuBurger size={20}/>)}
+                        {MenuState ? (""):(<CgMenuRight size={30}/>)}
                     </div>
                    
             </div>

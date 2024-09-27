@@ -11,9 +11,8 @@ const Layout = ()=>{
            <Navbar/>
             <Outlet/>
             <Footer/>
-             {/* ResponsiveNavbar */}
-               
-             <ResponsiveNavbar/>   
+            {/* ResponsiveNavbar */}
+            <ResponsiveNavbar/>   
         </>
     )
 }
