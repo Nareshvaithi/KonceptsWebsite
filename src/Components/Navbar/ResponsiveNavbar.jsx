@@ -81,16 +81,16 @@ const ResponsiveNavbar = ()=>{
     
     return(
         <>
-         <div className={`fixed bottom-0 top-0 w-screen h-screen left-0 right-0 bg-gray-400 z-40 transition-all duration-500 ease-in-out ${MenuState ? "top-0 bottom-0" : "transform translate-y-[100%]"} overflow-y-scroll`}>
+         <div className={`fixed top-0 w-screen min-h-screen inset-0 left-0 bg-darkblue text-white z-40 transition-all duration-500 ease-in-out ${MenuState ? "-translate-y-0" : "-translate-y-full"} overflow-y-scroll`}>
              {/* header */}
-            <div className="bg-red-500 fixed right-0 left-0 overflow-hidden">
+            <div className="bg-gray-200 fixed right-0 left-0 text-darkblue overflow-hidden">
                 <div className="container">
                 <div className="flex items-center justify-between w-full">
                     <div className="">
                         <Logo/>
                     </div>
                     <div onClick={HandleMenuState}>
-                        <TfiClose/>
+                        <TfiClose size={30}/>
                     </div>
                    
                 </div>
@@ -102,7 +102,7 @@ const ResponsiveNavbar = ()=>{
                 <ul className="pl-0">
                     {
                         navlinks.map((items,index)=>(
-                            <Link onClick={()=>SetMenuState(false)} key={index} to={items.to} className="no-underline text-black block py-2">{items.lable}</Link>
+                            <Link onClick={()=>SetMenuState(false)} key={index} to={items.to} className="no-underline text-white block py-2">{items.lable}</Link>
                         ))
                     }
                 </ul>
@@ -157,10 +157,12 @@ const ResponsiveNavbar = ()=>{
 
                 </div>
                 <div className="w-full md:w-auto flex flex-col">
-                    <div className="">
+                    <div>
+                        <div className="bg-white w-fit py-2 rounded-full">
                         <Logo/>
-                        <span className="block">&copy; 2024 BlazeDream Technologies Pvt Ltd.</span>
-                        <span>All rights recieved</span>
+                        </div>
+                        <span className="block text-sm pt-1">&copy; 2024 BlazeDream Technologies Pvt Ltd.</span>
+                        <span className="text-sm">All rights recieved</span>
                     </div>
                 </div>
             </div>
