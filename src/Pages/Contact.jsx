@@ -32,6 +32,8 @@ const Contact = () => {
         projectDetails: ''
     });
 
+    const[errors, setErrors] = useState({});
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setContactData({ ...contactData, [name]: value });
@@ -47,16 +49,33 @@ const Contact = () => {
         });
     };
 
+    const validate = () => {
+        const newErrors = {};
+        Object.entries(contactData).forEach(([key, value]) => {
+            if (key !== 'services' && !value) {
+                newErrors[key] = `${key.charAt(0).toUpperCase() + key.slice(1)} is required.`;
+            }
+        });
+        if (contactData.services.length === 0) {
+            newErrors.services = 'Please select at least one service.';
+        }
+        return newErrors;
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const validationErrors = validate();
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
+            return;
+        }
+
         try {
             const response = await axios.post('http://localhost:5000/api/contact', contactData);
             console.log('Success:', response.data);
             console.log(response)
-            // Optionally clear the form or show a success message
         } catch (error) {
             console.error('Error:', error);
-            // Handle error (e.g., show an error message)
         }
     };
 
@@ -77,11 +96,10 @@ const Contact = () => {
                                             name={item.name}
                                             type={item.type}
                                             placeholder={item.detail}
-                                            className="text-xl bg-gray-200 placeholder:text-black placeholder:font-Heading font-thin placeholder:text-lg w-full outline-none px-3 py-2"
+                                            className="text-xl bg-gray-200 placeholder:text-black placeholder:font-Heading font-thin placeholder:text-lg w-full outline-none px-3 py-2 mb-4"
                                             onChange={handleChange}
-                                            required
                                         />
-                                        <p className="text-red-500 text-[15px] font-light">Please enter {item.detail}</p>
+                                        {errors[item.name] && <p className="text-red-500 text-[15px] font-light">{errors[item.name]}</p>}
                                     </div>
                                 ))}
                             </div>
@@ -102,7 +120,7 @@ const Contact = () => {
                                         ))}
                                     </div>
                                 </div>
-                                <p className="text-red-500 text-[15px] font-light">Please select at least one service *</p>
+                                {errors.services && <p className="text-red-500 text-[15px] font-light">{errors.services}</p>}
                             </div>
                         </div>
                         <div>
@@ -112,7 +130,6 @@ const Contact = () => {
                                 placeholder="Project details"
                                 rows={4}
                                 onChange={handleChange}
-                                required
                             ></textarea>
                         </div>
                         <div className="flex justify-center">
