@@ -52,11 +52,11 @@ const Contact = () => {
         try {
             const response = await axios.post('http://localhost:5000/api/contact', contactData);
             console.log('Success:', response.data);
-            console.log(response)
-            // Optionally clear the form or show a success message
+            alert("seccess:Mail sent successfully")
+           
         } catch (error) {
             console.error('Error:', error);
-            // Handle error (e.g., show an error message)
+       
         }
     };
 
