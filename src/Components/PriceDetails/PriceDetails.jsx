@@ -1,5 +1,6 @@
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import { BsFillRecord2Fill } from "react-icons/bs";
+
 const Lite = [
     {id:1,details:"website design"},
     {id:2,details:"212 Unique Page Designs"},
