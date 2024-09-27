@@ -102,14 +102,14 @@ const ResponsiveNavbar = ()=>{
                 <ul className="pl-0">
                     {
                         navlinks.map((items,index)=>(
-                            <Link onClick={()=>SetMenuState(false)} key={index} to={items.to} className="no-underline text-white block py-2">{items.lable}</Link>
+                            <Link onClick={()=>SetMenuState(false)} key={index} to={items.to} className="no-underline text-white text-xl block py-2">{items.lable}</Link>
                         ))
                     }
                 </ul>
                 </div>
                 <div className="w-full md:w-1/4 overflow-hidden">
                     <div onClick={()=>setserviceopen(!serviceopen)} className="flex items-center overflow-hidden cursor-pointer">
-                        <p>services</p>
+                        <h3 className="text-xl">services</h3>
                         <p className="block md:hidden"><MdOutlineKeyboardArrowDown color="white"/></p>
                     </div>
                     <div className={`${serviceopen ?"opacity-100 h-auto" :"opacity-0 h-0 overflow-hidden"} border-black transition-all duration-700`}>
