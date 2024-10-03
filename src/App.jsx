@@ -12,7 +12,13 @@ import Contact from './Pages/Contact';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import { MenuStateContext } from './Components/Usecontext/UseContext';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import ScrollToTop from './Components/Scroll';
+import { gsap, ScrollTrigger, Draggable, MotionPathPlugin } from "gsap/all";
+
+// don't forget to register plugins
+
+
 // ..
 AOS.init();
 
@@ -22,6 +28,7 @@ function App() {
   function HandleMenuState(){
     SetMenuState(!MenuState)
   }
+  gsap.registerPlugin(ScrollTrigger, Draggable,MotionPathPlugin);
 
   return (
     <>  
@@ -39,6 +46,7 @@ function App() {
           <Route path='*' element={<Nopage/>}/>
         </Route>
       </Routes>
+      <ScrollToTop/>
     </BrowserRouter>
     </MenuStateContext.Provider>
     </>

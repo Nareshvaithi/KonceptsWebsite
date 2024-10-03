@@ -81,15 +81,15 @@ const ResponsiveNavbar = ()=>{
     
     return(
         <>
-         <div className={`fixed top-0 w-screen min-h-screen inset-0 left-0 bg-darkblue text-white z-40 transition-all duration-500 ease-in-out ${MenuState ? "-translate-y-0" : "-translate-y-full"} overflow-y-scroll`}>
+         <div className={`fixed top-0 w-screen min-h-screen inset-0 left-0 bg-white text-black z-40 transition-all duration-500 ease-in-out ${MenuState ? "-translate-y-0" : "-translate-y-full"} overflow-y-scroll`}>
              {/* header */}
-            <div className="bg-gray-200 fixed right-0 left-0 text-darkblue overflow-hidden">
+            <div className="bg-darkblue py-2 fixed right-0 left-0 text-darkblue overflow-hidden">
                 <div className="container">
                 <div className="flex items-center justify-between w-full">
-                    <div className="">
-                        <Logo/>
+                    <div className="bg-white rounded-full py-2">
+                        <Link to={'/'} onClick={()=>{SetMenuState(false);window.scrollTo(0,0)}}><Logo/></Link>
                     </div>
-                    <div onClick={HandleMenuState}>
+                    <div onClick={HandleMenuState} className="cursor-pointer text-white">
                         <TfiClose size={30}/>
                     </div>
                    
@@ -97,47 +97,47 @@ const ResponsiveNavbar = ()=>{
             </div>
             </div>
             {/* body */}
-            <div className="container flex flex-wrap uppercase mt-20">
+            <div className="container flex flex-wrap uppercase mt-28">
                 <div className="w-full md:w-1/4">
                 <ul className="pl-0">
                     {
                         navlinks.map((items,index)=>(
-                            <Link onClick={()=>SetMenuState(false)} key={index} to={items.to} className="no-underline text-white text-xl block py-2">{items.lable}</Link>
+                            <Link onClick={()=>{SetMenuState(false);window.scrollTo(0,0)}} key={index} to={items.to} className="no-underline text-black font-semibold text-xl block py-2">{items.lable}</Link>
                         ))
                     }
                 </ul>
                 </div>
-                <div className="w-full md:w-1/4 overflow-hidden">
-                    <div onClick={()=>setserviceopen(!serviceopen)} className="flex items-center overflow-hidden cursor-pointer">
-                        <h3 className="text-xl">services</h3>
-                        <p className="block md:hidden"><MdOutlineKeyboardArrowDown color="white"/></p>
+                <div className="w-full md:w-1/4 overflow-hidden mt-2">
+                    <div onClick={()=>setserviceopen(!serviceopen)} className="flex overflow-hidden cursor-pointer">
+                        <h3 className="text-xl">Services</h3>
+                        <p className="block md:hidden"><MdOutlineKeyboardArrowDown size={30} color="black"/></p>
                     </div>
                     <div className={`${serviceopen ?"opacity-100 h-auto" :"opacity-0 h-0 overflow-hidden"} border-black transition-all duration-700`}>
                         {Services.map((items,index)=>(
-                            <li key={index} className={`${items.id === 2 ? "list-disc text-sm" : "list-none"}`}>{items.service}</li>
+                            <li key={index} className={`${items.id === 2 ? "list-disc text-sm py-1" : "list-none py-2"}`}>{items.service}</li>
                         ))}
                     </div>
                 </div>
-                <div className="w-full md:w-1/4 overflow-hidden">
-                    <div onClick={()=>sethiringopen(!hiringopen)} className="flex items-center overflow-hidden cursor-pointer">
-                        <p>Openning</p>
-                        <p className="block md:hidden"><MdOutlineKeyboardArrowDown color="white"/></p>
+                <div className="w-full md:w-1/4 overflow-hidden mt-2">
+                    <div onClick={()=>sethiringopen(!hiringopen)} className="flex overflow-hidden cursor-pointer">
+                    <h3 className="text-xl">Openning</h3>
+                    <p className="block md:hidden"><MdOutlineKeyboardArrowDown size={30} color="black"/></p>
                     </div>
                     <div className={`${hiringopen ?"opacity-100 h-auto":"h-0 opacity-0 overflow-hidden"} transition-all duration-700`}>
                         {hiringing.map((items,index)=>(
-                            <li key={index} className={`${items.id === 2 ? "list-disc text-sm" : "list-none"}`}>{items.openning}</li>
+                            <li key={index} className={`${items.id === 2 ? "list-disc text-sm py-1" : "list-none py-2"}`}>{items.openning}</li>
                         ))}
                     </div>
                 </div>
 
-                <div className="w-full md:w-1/4 overflow-hidden">
-                    <div onClick={()=>settechopen(!techopen)} className="flex items-center overflow-hidden cursor-pointer">
-                        <p>technologies</p>
-                        <p className="block md:hidden"><MdOutlineKeyboardArrowDown color="white"/></p>
+                <div className="w-full md:w-1/4 overflow-hidden mt-2">
+                    <div onClick={()=>settechopen(!techopen)} className="flex overflow-hidden cursor-pointer">
+                    <h3 className="text-xl">Technonohies</h3>
+                    <p className="block md:hidden"><MdOutlineKeyboardArrowDown size={30} color="black"/></p>
                     </div>
                     <div className={`${techopen ?"opacity-100 h-auto" :"opacity-0 h-0 overflow-hidden"} border-black transition-all duration-700`}>
                         {technologies.map((items,index)=>(
-                            <li key={index} className={`${items.id === 2 ? "list-disc text-sm" : "list-none"}`}>{items.tech}</li>
+                            <li key={index} className={`${items.id === 2 ? "list-disc text-sm py-1" : "list-none py-2"}`}>{items.tech}</li>
                         ))}
                     </div>
                 </div>
@@ -158,10 +158,10 @@ const ResponsiveNavbar = ()=>{
                 </div>
                 <div className="w-full md:w-auto flex flex-col">
                     <div>
-                        <div className="bg-white w-fit py-2 rounded-full">
+                        <div className="border-4 border-darkblue w-fit py-2 rounded-full">
                         <Logo/>
                         </div>
-                        <span className="block text-sm pt-1">&copy; 2024 BlazeDream Technologies Pvt Ltd.</span>
+                        <span className="block text-sm pt-1">&copy; 2024 Koncepts Design And Development.</span>
                         <span className="text-sm">All rights recieved</span>
                     </div>
                 </div>

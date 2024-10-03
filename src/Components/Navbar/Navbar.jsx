@@ -75,7 +75,7 @@ export const navlinks = [
                 <div className="container flex items-center justify-between">
                     {/* logo */}
                     <div className="">
-                        <Link className="" to={'/'}><Logo/></Link>
+                        <Link onClick={()=>{SetMenuState(false);window.scrollTo(0,0)}} className="" to={'/'}><Logo/></Link>
                     </div>
                     {/* navbar links */}
                     <div className="hidden md:block">
@@ -92,7 +92,7 @@ export const navlinks = [
                         </ul>
                     </div>
                     {/* Menu button */}
-                    <div onClick={HandleMenuState}>
+                    <div onClick={HandleMenuState} className="cursor-pointer">
                         {MenuState ? (""):(<CgMenuRight size={30}/>)}
                     </div>
                    

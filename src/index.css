@@ -17,16 +17,38 @@
 
 
 .twmt{
-    @apply mt-5 md:mt-20
+    @apply mt-3 md:mt-10
 }
 .twgap{
     @apply gap-5
 }
 
 .sbg{
-    @apply text-darkblue hover:text-white bg-white hover:bg-darkblue
+    @apply text-white hover:text-white bg-black hover:bg-darkblue
     
 }
 .cargap{
     @apply gap-5 md:gap-36
 }
+
+
+
+.slick-prev::before, 
+.slick-next::before {
+  position: relative;
+  top: 170px; /* Adjust the distance from the bottom */
+  background-color: gray;
+  color: red; /* Remove background */
+  border: none; /* Remove border */
+  z-index: 1; /* Ensure arrows are above the slider content */
+}
+
+.slick-prev::before {
+  left: 25rem; /* Move the previous arrow slightly left */
+}
+
+.slick-next::before {
+  right: 25rem; /* Move the next arrow slightly right */
+}
+
+
