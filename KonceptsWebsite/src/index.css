@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer utilities {
+    .links{
+        @apply relative
+    }
+    .links::after{
+        @apply content-[''] bg-darkblue w-[0%] h-[1px] rounded-2xl left-0 -bottom-[5px] absolute duration-300
+    }
+    .links:hover::after{
+        @apply w-[100%]
+    }
+}
+.twmt{
+    @apply mt-3 md:mt-10
+}
+.twgap{
+    @apply gap-5
+}
+
+.sbg{
+    @apply text-white hover:text-white bg-black hover:bg-darkblue
+    
+}
+.cargap{
+    @apply gap-5 md:gap-36
+}
+
+
+
+.slick-prev::before, 
+.slick-next::before {
+  position: relative;
+  top: 170px; /* Adjust the distance from the bottom */
+  background-color: gray;
+  color: red; /* Remove background */
+  border: none; /* Remove border */
+  z-index: 1; /* Ensure arrows are above the slider content */
+}
+
+.slick-prev::before {
+  left: 25rem; /* Move the previous arrow slightly left */
+}
+
+.slick-next::before {
+  right: 25rem; /* Move the next arrow slightly right */
+}
+
+.abouttext{
+    @apply px-10 text-3xl md:text-5xl font-semibold leading-normal md:leading-normal text-slate-950
+}
+.swiper-button-prev, .swiper-button-next {
+    @apply text-black p-1
+  }
+
+.swiper-pagination-bullet{
+    @apply relative bg-darkblue text-darkblue w-1 h-1 rounded-none px-1 md:px-3 mr-2
+}
+.swiper-pagination-bullet-active{
+    @apply bg-darkblue
+}
+
+.portfolio-content{
+    @apply px-2 md:px-5 mt-5 md:mt-20
+}
+.portfolio-white-div{
+    @apply static md:sticky h-auto md:h-screen
+}
+.aboutExpCardContainer{
+    @apply p-2 md:p-5
+}
+
+.getaquotepagepadding{
+    @apply py-5 mt-5
+}
+.country-icon{
+    @apply w-[40px] md:w-20 lg:w-28
+}
+
+.borderdarkblue{
+    @apply border-2 border-darkblue
+}
+.bordershadow{
+    @apply shadow-md
+}
+/* styles.css */
+.swiper-button-next,
+.swiper-button-prev {
+  color: gray; /* Default color */
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: black; /* Hover color */
+}
+.jathi{
+    @apply w-32
+}
+.btn2{
+    @apply border-2 border-darkblue hover:bg-darkblue hover:text-white text-darkblue bg-white w-fit no-underline rounded-full py-3 px-5 md:px-10 text-lg md:text-2xl mt-5 flex items-center gap-3 transition-all duration-300 hover:scale-95
+}
+
+.heightcustom{
+    @apply h-auto md:h-screen pt-24 pb-10 md:pb-10 md:py-0
+}
+
+.headj{
+    @apply h-auto md:h-screen
+}
+.crossgap{
+    @apply gap-2 md:gap-10
+}
